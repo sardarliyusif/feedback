@@ -1,0 +1,22 @@
+[
+  {
+    "label": "UX",
+    "value": "ux"
+  },
+  {
+    "label": "UI",
+    "value": "ui"
+  },
+  {
+    "label": "Enhancement",
+    "value": "enhancement"
+  },
+  {
+    "label": "Bug",
+    "value": "bug"
+  },
+  {
+    "label": "Feature",
+    "value": "feature"
+  }
+]
