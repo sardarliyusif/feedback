@@ -1,5 +1,5 @@
 import React from 'react';
-import data from '../data/sorting.json'
+import data from '../../data/sorting.json'
 
 export const Dropdown = () => {
     return <div>
@@ -11,4 +11,3 @@ export const Dropdown = () => {
         </select>
     </div>
 }
-

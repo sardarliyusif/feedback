@@ -18,7 +18,11 @@ export const Typography = styled.span`
     return '18px'
   }};
   line-height: 1.6;
-  color: #F2F4FE;
+  color: ${(props) => {
+    if (props.color == "purple") return '#3A4374';
+    if (props.color == "light") return '#647196';
+    return "#647196"
+  }};
 `;
 
 export const Title = styled.h1`
@@ -38,7 +42,11 @@ export const Title = styled.h1`
     return '500'
   }};
   line-height: 1.6;
-  color: #F2F4FE;
+  color: ${(props) => {
+    if (props.color === "purple") return '#3A4374';
+    if (props.color === "light") return '#647196';
+    return "#647196"
+  }};
 `;
 
 Typography.Title = Title;
