@@ -1,5 +1,5 @@
 import dayjs from 'dayjs';
-import { find, mergeWith, cloneDeep, filter, findIndex } from 'lodash';
+import { find, mergeWith, cloneDeep, findIndex } from 'lodash';
 import { nanoid } from 'nanoid';
 import { Status } from '../../data/statuses';
 import { FeedbackActions } from '../actions/feedback';

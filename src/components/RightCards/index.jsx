@@ -43,7 +43,7 @@ export const RightCards = () => {
 				.map(({ id, title, category, description, comments, upvotes }) => (
 					<Card key={id} padding='large' mode='light' justify='between'>
 						<div>{upvotes}</div>
-						<Link to='/detail' style={{ flex: '1' }}>
+						<Link to='/detail' style={{ flex: '1' , display : "flex" , flexDirection : "column" }}>
 							<Typography.Title color='purple'>{title}</Typography.Title>
 							<Typography color='light'>{description}</Typography>
 							<Chip>{categories.find((c) => c.value === category)?.label}</Chip>

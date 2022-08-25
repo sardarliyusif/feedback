@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 
 export const Chip = styled.span`
@@ -6,6 +5,7 @@ export const Chip = styled.span`
   color: ${(props) => props.selected ? '#ffffff' : '#4661E6'};
   border-radius: 10px;
   padding: 6px 16px;
+  max-width: max-content;
   font-size: 13px;
   font-weight: 600;
   cursor: pointer;

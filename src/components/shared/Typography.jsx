@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 
 export const Typography = styled.span`
@@ -20,7 +19,7 @@ export const Typography = styled.span`
 	color: ${(props) => {
 		if (props.color === 'purple') return '#3A4374';
 		if (props.color === 'light') return '#647196';
-		return '#647196';
+		return '#FFFFFF';
 	}};
 `;
 
@@ -44,7 +43,7 @@ export const Title = styled.h1`
 	color: ${(props) => {
 		if (props.color === 'purple') return '#3A4374';
 		if (props.color === 'light') return '#647196';
-		return '#647196';
+		return '#FFFFFF';
 	}};
 `;
 

@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 
 export const Card = styled.div`
@@ -14,6 +13,12 @@ export const Card = styled.div`
     if (props.padding === 'medium') return '24px';
     if (props.padding === 'large') return '28px 32px';
     return '24px';
+  }};
+  margin: ${(props) => {
+    if (props.margin === 'small') return '14px 16px';
+    if (props.margin === 'medium') return '0 0 0 24px';
+    if (props.margin === 'large') return '28px 32px';
+    return '0 0 24px 0';
   }};
   display: flex;
   justify-content: ${(props) => {

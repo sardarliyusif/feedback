@@ -4,7 +4,7 @@ import categories from "../../data/categories.json";
 import { Feedback } from "../../context/Feedback";
 
 export const LeftFilter = () => {
-    const {feedbacks, selectedCategories , handleSelectCategory} = useContext(Feedback)
+    const { selectedCategories , handleSelectCategory} = useContext(Feedback)
   return (
     <div>
       <Card
