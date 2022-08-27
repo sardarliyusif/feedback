@@ -1,10 +1,12 @@
-import React, { useEffect } from 'react';
-import { isEmpty } from 'lodash';
-import { useNavigate } from 'react-router-dom';
+import React from 'react';
+import {Link} from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux';
 import { Button, Form, Input, Select } from 'antd';
+import { FaAngleLeft } from "react-icons/fa";
 import categories from '../data/categories.json';
 import { createFeedback } from '../redux/actions/feedback';
+import { Typography } from '../components/shared';
+
 
 const layout = {
 	labelCol: {
@@ -32,22 +34,14 @@ const validateMessages = {
 
 export const CreateFeedback = () => {
 	const dispatch = useDispatch();
-	const feedback = useSelector((state) => state.feedback);
-	const navigate = useNavigate();
-
+	const feedbacks = useSelector((state) => state.feedback);
 	const onFinish = (values) => {
-		console.log(values);
 		dispatch(createFeedback(values));
 	};
 
-	useEffect(() => {
-		if (!isEmpty(feedback)) {
-			const id = feedback.at(-1).id;
-			navigate(`/feedback/${id}/edit`);
-		}
-	}, [feedback, navigate]);
-
 	return (
+		<>
+		<Link to={'/'}><Typography color='light' size = 'small' weight = 'bold' ><FaAngleLeft/>Go Back</Typography></Link>
 		<Form
 			{...layout}
 			name='nest-messages'
@@ -96,5 +90,7 @@ export const CreateFeedback = () => {
 				</Button>
 			</Form.Item>
 		</Form>
+		
+		</>
 	);
 };

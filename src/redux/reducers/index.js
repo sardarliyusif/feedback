@@ -1,8 +1,10 @@
-import { combineReducers } from 'redux';
-import { feedbackReducer } from './feedback';
+import { combineReducers } from "redux";
+import { feedbackReducer } from "./feedback";
+import { selectedCategoriesReducer } from "./selectedCategories";
 
 export const reducer = combineReducers({
-	feedback: feedbackReducer,
+  feedback: feedbackReducer,
+  selectedCategories: selectedCategoriesReducer,  
 });
 
-export * from './feedback';
+export * from "./feedback";

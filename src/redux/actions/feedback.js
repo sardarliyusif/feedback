@@ -3,19 +3,19 @@
 // UPVOTE
 
 export const FeedbackActions = {
-	CREATE: 'CREATE',
-	EDIT: 'EDIT',
-	DELETE: 'DELETE',
-	UPVOTE: 'UPVOTE',
+  CREATE: "CREATE",
+  EDIT: "EDIT",
+  DELETE: "DELETE",
+  UPVOTE: "UPVOTE",
 };
 
 export const createFeedback = (feedback) => ({
-	type: FeedbackActions.CREATE,
-	payload: feedback,
+  type: FeedbackActions.CREATE,
+  payload: feedback,
 });
 export const editFeedback = (id, editedData) => ({
-	type: FeedbackActions.EDIT,
-	payload: { id, editedData },
+  type: FeedbackActions.EDIT,
+  payload: { id, editedData },
 });
 export const deleteFeedback = () => ({ type: FeedbackActions.DELETE });
 export const upvoteFeedback = () => ({ type: FeedbackActions.UPVOTE });

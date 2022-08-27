@@ -1,14 +1,15 @@
 import React, { useContext } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { RiLightbulbFlashLine } from 'react-icons/ri';
 import { Link } from 'react-router-dom';
 import { Dropdown } from '../Dropdown';
 import categories from '../../data/categories.json';
 import { Typography, Card, Button, Chip } from '../shared';
-import { Feedback } from '../../context/Feedback';
 
 export const RightCards = () => {
-	const { feedbacks, selectedCategories } = useContext(Feedback);
-
+	const dispatch = useDispatch();
+	const feedback = useSelector(state => state.feedback)
+	const selectedCategories = useSelector((state) => state.selectedCategories);
 	return (
 		<div>
 			<Card mode='dark' align='center' justify='between' padding='small'>
@@ -21,7 +22,7 @@ export const RightCards = () => {
 				>
 					<RiLightbulbFlashLine color='#ffffff' style={{ margin: '8px' }} />
 					<Typography size='large' weight='bold'>
-						{feedbacks.length} Suggestion
+						{feedback.length} Suggestion
 					</Typography>
 					<Dropdown />
 				</div>
@@ -35,7 +36,7 @@ export const RightCards = () => {
 				</Link>
 			</Card>
 
-			{feedbacks
+			{feedback
 				.filter(
 					({ category }) =>
 						selectedCategories.length === 0 || selectedCategories.includes(category)

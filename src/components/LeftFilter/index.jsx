@@ -1,10 +1,12 @@
-import React , {useContext} from "react";
+import React, { useContext } from "react";
+import { useDispatch, useSelector } from 'react-redux';
 import { Card, Chip, Typography } from "../shared";
 import categories from "../../data/categories.json";
-import { Feedback } from "../../context/Feedback";
+import { selectedCategory } from '../../redux/actions/selectedCategories'
 
 export const LeftFilter = () => {
-    const { selectedCategories , handleSelectCategory} = useContext(Feedback)
+  const dispatch = useDispatch();
+  const selectedCategories = useSelector((state) => state.selectedCategories);
   return (
     <div>
       <Card
@@ -28,7 +30,7 @@ export const LeftFilter = () => {
       >
         <Chip
           selected={selectedCategories.length === 0}
-          onClick={() => handleSelectCategory()}
+          onClick={() => dispatch(selectedCategory())}
         >
           All
         </Chip>
@@ -36,7 +38,7 @@ export const LeftFilter = () => {
           <Chip
             key={index}
             selected={selectedCategories.includes(value)}
-            onClick={() => handleSelectCategory(value)}
+            onClick={() => dispatch(selectedCategory(value))}
           >
             {label}
           </Chip>
