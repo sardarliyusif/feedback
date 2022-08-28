@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 
+// TODO: lazy loading tetbiq ele!!
 import {
 	CreateFeedback,
 	Detail,

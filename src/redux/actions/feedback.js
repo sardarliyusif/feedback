@@ -18,7 +18,15 @@ export const editFeedback = (id, editedData) => ({
   payload: { id, editedData },
 });
 export const deleteFeedback = () => ({ type: FeedbackActions.DELETE });
-export const upvoteFeedback = () => ({ type: FeedbackActions.UPVOTE });
+// bu bele olmamalidi
+// export const upvoteFeedback = (upvotes) => ({
+//   type: FeedbackActions.UPVOTE,
+//   payload: {upvotes},
+// });
+export const upvoteFeedback = (id, upvotes , selected) => ({
+  type: FeedbackActions.UPVOTE,
+  payload: { id, upvotes , selected },
+});
 
 // dispatch(createFeedback({ title: '', category: '', description: '' }))
 // dispatch(editFeedback(id, { status: '' }))

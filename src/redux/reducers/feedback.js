@@ -1,11 +1,11 @@
 import dayjs from "dayjs";
-import { find, map, mergeWith, cloneDeep, findIndex } from "lodash";
+import { find, map, mergeWith, cloneDeep, findIndex, some } from "lodash";
 import { nanoid } from "nanoid";
 import { Status } from "../../data/statuses";
 import { FeedbackActions } from "../actions/feedback";
 import data from "../../data/data.json";
 
-const prevFeedbacks = map(data.productRequests, (e) => {
+const initialFeedbacks = map(data.productRequests, (e) => {
   return {
     title: e.title,
     category: e.category,
@@ -13,11 +13,13 @@ const prevFeedbacks = map(data.productRequests, (e) => {
     author: localStorage.getItem("user"),
     status: e.status,
     upvotes: e.upvotes,
+    selected: false,
     createdAt: dayjs().format("YYYY-MM-DD-HH:mm"),
     id: nanoid(),
   };
 });
-export const feedbackReducer = (state = [...prevFeedbacks], action) => {
+
+export const feedbackReducer = (state = initialFeedbacks, action) => {
   const user = localStorage.getItem("user");
 
   switch (action.type) {
@@ -32,6 +34,7 @@ export const feedbackReducer = (state = [...prevFeedbacks], action) => {
           author: user,
           status: Status.SUGGESTION,
           upvotes: 0,
+          selected: false,
           createdAt: dayjs().format("YYYY-MM-DD-HH:mm"),
           id: nanoid(),
         },
@@ -60,8 +63,23 @@ export const feedbackReducer = (state = [...prevFeedbacks], action) => {
       const clone = cloneDeep(state);
       clone.splice(foundIndex, 1, mergedData);
       return clone;
-    
-
+    case FeedbackActions.UPVOTE:
+      const id = action.payload.id;
+      let selected = action.payload.selected;
+      // find element with id that we want to upvote
+      const has = some(state, (f) => f.id === action.payload.id);
+      // if not found return
+      if (!has) return state;
+      // make cloe of state in order of not to change the original object
+      const cloned = cloneDeep(state);
+      if (selected === true) {
+        find(cloned, (f) => f.id === id).selected = false;
+        find(cloned, (f) => f.id === id).upvotes = (action.payload.upvotes - 1);
+      }else if(selected === false ){
+        find(cloned, (f) => f.id === id).selected = true;
+        find(cloned, (f) => f.id === id).upvotes = (action.payload.upvotes + 1);
+      }
+      return cloned;
     default:
       return state;
   }

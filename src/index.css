@@ -18,3 +18,13 @@ a{
   width: 1110px;
   margin: 94px auto;
 }
+
+.container-s{
+  width: 540px;
+  margin: 94px auto;
+}
+
+.container-m{
+  width: 800px;
+  margin: 94px auto;
+}
