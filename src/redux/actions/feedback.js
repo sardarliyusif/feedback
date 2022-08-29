@@ -17,15 +17,13 @@ export const editFeedback = (id, editedData) => ({
   type: FeedbackActions.EDIT,
   payload: { id, editedData },
 });
-export const deleteFeedback = () => ({ type: FeedbackActions.DELETE });
-// bu bele olmamalidi
-// export const upvoteFeedback = (upvotes) => ({
-//   type: FeedbackActions.UPVOTE,
-//   payload: {upvotes},
-// });
-export const upvoteFeedback = (id, upvotes , selected) => ({
+export const deleteFeedback = (id) => ({
+  type: FeedbackActions.DELETE,
+  payload: { id },
+});
+export const upvoteFeedback = (id, upvotes, selected) => ({
   type: FeedbackActions.UPVOTE,
-  payload: { id, upvotes , selected },
+  payload: { id, upvotes, selected },
 });
 
 // dispatch(createFeedback({ title: '', category: '', description: '' }))

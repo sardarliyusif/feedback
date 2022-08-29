@@ -1,0 +1,11 @@
+.status{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .status__count{
+        color: #647196;
+        font-size: 1rem;
+        font-weight: 700;
+    }
+}

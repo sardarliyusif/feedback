@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Form, Input, Select } from "antd";
 import { FaAngleLeft } from "react-icons/fa";
 import categories from "../data/categories.json";
@@ -33,7 +33,6 @@ const validateMessages = {
 
 export const CreateFeedback = () => {
   const dispatch = useDispatch();
-  const feedbacks = useSelector((state) => state.feedback);
   const navigate = useNavigate();
   const onFinish = (values) => {
     dispatch(createFeedback(values));
@@ -48,10 +47,9 @@ export const CreateFeedback = () => {
           Go Back
         </Typography>
       </Link>
-      <Card >
+      <Card>
         <Form
           {...layout}
-		  
           name="nest-messages"
           onFinish={onFinish}
           validateMessages={validateMessages}
@@ -93,9 +91,11 @@ export const CreateFeedback = () => {
             <Input.TextArea />
           </Form.Item>
           <Form.Item wrapperCol={{ span: 24 }}>
-            <Button>
-              <Typography size="small">Cancel</Typography>
-            </Button>
+            <Link to='/'>
+              <Button>
+                <Typography size="small">Cancel</Typography>
+              </Button>
+            </Link>
             <Button htmlType="submit">
               <Typography size="small">Add Feedback</Typography>
             </Button>

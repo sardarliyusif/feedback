@@ -74,14 +74,20 @@ export const feedbackReducer = (state = initialFeedbacks, action) => {
       const cloned = cloneDeep(state);
       if (selected === true) {
         find(cloned, (f) => f.id === id).selected = false;
-        find(cloned, (f) => f.id === id).upvotes = (action.payload.upvotes - 1);
-      }else if(selected === false ){
+        find(cloned, (f) => f.id === id).upvotes = action.payload.upvotes - 1;
+      } else if (selected === false) {
         find(cloned, (f) => f.id === id).selected = true;
-        find(cloned, (f) => f.id === id).upvotes = (action.payload.upvotes + 1);
+        find(cloned, (f) => f.id === id).upvotes = action.payload.upvotes + 1;
       }
       return cloned;
+    case FeedbackActions.DELETE:
+      const deletedFeedback = find(state, (f) => f.id === action.payload.id);
+      if (!deletedFeedback) return state;
+      const deletedIndex = findIndex(state, (f) => f.id === action.payload.id);
+      const clonedState = cloneDeep(state);
+      clonedState.splice(deletedIndex, 1);
+      return clonedState;
     default:
       return state;
   }
 };
-

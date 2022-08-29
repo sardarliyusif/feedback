@@ -1,8 +1,10 @@
-import React, { useContext } from "react";
+import React from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { Card, Chip, Typography } from "../shared";
 import categories from "../../data/categories.json";
 import { selectedCategory } from '../../redux/actions/selectedCategories'
+import { Link } from "react-router-dom";
+import { StatusBar } from "../StatusBar";
 
 export const LeftFilter = () => {
   const dispatch = useDispatch();
@@ -43,6 +45,13 @@ export const LeftFilter = () => {
             {label}
           </Chip>
         ))}
+      </Card>
+      <Card style={{flexDirection: "column"}}>
+        <div style={{display: 'flex' , justifyContent: 'space-between' , alignItems: 'center' , width: '100%'}}>
+          <Typography color="purple" weight='bold'>Roadmap</Typography>
+          <Link to='/roadmap'>View</Link>
+        </div>
+        <StatusBar/>
       </Card>
     </div>
   );

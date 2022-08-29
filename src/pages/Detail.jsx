@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import { FaAngleUp } from "react-icons/fa";
 import { FaAngleLeft } from "react-icons/fa";
-import { find, map } from "lodash";
+import { find} from "lodash";
 import { upvoteFeedback } from "../redux/actions/feedback";
 import categories from "../data/categories.json";
 import { Typography, Button, Card, Chip } from "../components/shared";
@@ -45,7 +45,7 @@ export const Detail = () => {
                 <FaAngleUp /> {feedback?.upvotes}
               </Chip.Upvote>
               <Link
-                to={`/feedback?/${id}/view`}
+                to={`#`}
                 style={{
                   flex: "1",
                   display: "flex",

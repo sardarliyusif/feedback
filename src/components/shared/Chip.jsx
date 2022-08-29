@@ -9,6 +9,9 @@ export const Chip = styled.span`
   font-size: 13px;
   font-weight: 600;
   cursor: pointer;
+  &:hover{
+    opacity: 0.8;
+  }
 `;
 
 export const Upvote = styled.button`
@@ -24,6 +27,9 @@ export const Upvote = styled.button`
   align-items: center;
   border: none;
   cursor: pointer;
+  &:hover{
+    opacity: 0.8;
+  }
 `;
 
 Chip.Upvote = Upvote;

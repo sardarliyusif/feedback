@@ -1,0 +1,14 @@
+.status__name{
+    &--color{
+        margin-right: 1rem;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        display: inline-block;
+    }
+    &__value{
+        color: #647196;
+        font-weight: 400;
+        font-size: 16px;
+    }
+}
