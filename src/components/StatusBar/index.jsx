@@ -1,22 +1,30 @@
-import React from "react";
-import { StatusCircle } from "../StatusCircle";
-import './style.scss'
+import React, { useMemo } from 'react';
+import map from 'lodash/map';
+import filter from 'lodash/filter';
+import countBy from 'lodash/countBy';
+import { useSelector } from 'react-redux';
+import { StatusCircle } from '../StatusCircle';
+import { Status, statues } from '../../data/statuses';
+import './style.scss';
 
 export const StatusBar = () => {
-  return (
-    <>
-      <div className="status">
-        <StatusCircle name = 'planned'/>
-        <div className="status__count">2</div>
-      </div>
-      <div className="status">
-        <StatusCircle name = 'progress'/>
-        <div className="status__count">3</div>
-      </div>
-      <div className="status">
-        <StatusCircle name = 'live'/>
-        <div className="status__count">1</div>
-      </div>
-    </>
-  );
+	const feedback = useSelector((s) => s.feedback);
+
+	const calculated = useMemo(() => {
+		return countBy(feedback, (f) => f.status);
+	}, [feedback]);
+
+	return (
+		<>
+			{map(
+				filter(statues, (s) => s.value !== Status.SUGGESTION),
+				({ label, value, color }) => (
+					<div key={value} className='status'>
+						<StatusCircle name={label} backgroundColor={color} />
+						<div className='status__count'>{calculated[value]}</div>
+					</div>
+				)
+			)}
+		</>
+	);
 };

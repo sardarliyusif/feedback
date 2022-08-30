@@ -5,21 +5,29 @@ export const Status = {
 	LIVE: 'live',
 };
 
+// enum RequestStatus {
+// 		UPPER_CASE = 'istediyin sey'
+// }
+
 export const statues = [
 	{
-	  "label": "In-Progress",
-	  "value": "in-progress"
+		label: 'Suggestion',
+		value: 'suggestion',
+		color: 'black',
 	},
 	{
-	  "label": "Suggestion",
-	  "value": "suggestion"
+		label: 'Planned',
+		value: 'planned',
+		color: '#F49F85',
 	},
 	{
-	  "label": "Planned",
-	  "value": "planned"
+		label: 'In-Progress',
+		value: 'in-progress',
+		color: '#AD1FEA',
 	},
 	{
-	  "label": "Live",
-	  "value": "live"
+		label: 'Live',
+		value: 'live',
+		color: '#62BCFA',
 	},
-  ]
+];
