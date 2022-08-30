@@ -7,7 +7,7 @@ import { Statuses } from '../components/Statuses';
 export const RoadMap = () => {
 	return (
 		<div className='container'>
-			<Card mode='dark' padding='large' align='center' justify='between'>
+			<Card mode='dark' padding='large' align='center' justify='between' margin='medium' >
 				<div>
 					<Link to={-1}>
 						<Typography size='small' weight='bold'>

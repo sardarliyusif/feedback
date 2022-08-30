@@ -1,4 +1,6 @@
 .status__name{
+    display: flex;
+    align-items: center;
     &--color{
         margin-right: 1rem;
         width: 8px;

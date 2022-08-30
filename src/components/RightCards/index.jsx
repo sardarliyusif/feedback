@@ -17,7 +17,6 @@ export const RightCards = () => {
 	const feedback = useSelector((state) => state.feedback);
 	const selectedCategories = useSelector((state) => state.categories);
 
-	console.log(sort, sortingFunctions[sort], sortingFunctions[sort](feedback));
 
 	return (
 		<div>
@@ -25,7 +24,6 @@ export const RightCards = () => {
 				<div
 					style={{
 						display: 'flex',
-						alignItems: 'center',
 						gap: '10px',
 					}}
 				>
@@ -54,7 +52,7 @@ export const RightCards = () => {
 					)
 				),
 				({ id, title, category, description, comments, upvotes, selected }) => (
-					<Card key={id} padding='large' mode='light' justify='between'>
+					<Card key={id} padding='large' mode='light' justify='between' align='center'>
 						<Chip.Upvote
 							onClick={() => dispatch(upvoteFeedback(id, upvotes, selected))}
 							selected={selected}
@@ -63,10 +61,10 @@ export const RightCards = () => {
 						</Chip.Upvote>
 						<Link
 							to={`/feedback/${id}/view`}
-							style={{ flex: '1', display: 'flex', flexDirection: 'column' }}
+							style={{ flex: '1', display: 'flex', flexDirection: 'column', marginLeft: '40px'}}
 						>
 							<Typography.Title color='purple'>{title}</Typography.Title>
-							<Typography color='light'>{description}</Typography>
+							<Typography color='light' style={{margin: "0 0 12px 0 "}}>{description}</Typography>
 							<Chip>{categories.find((c) => c.value === category)?.label}</Chip>
 						</Link>
 						<div>{comments?.length}</div>

@@ -1,4 +1,12 @@
-.statuses{
-    display: grid;
-    grid-template-columns: repeat(3 , 1fr);
+.statuses {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+
+  &__chip {
+    margin: 16px 0;
+  }
+  .status__name {
+    margin-bottom: 12px;
+  }
 }

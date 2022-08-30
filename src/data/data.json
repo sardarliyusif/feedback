@@ -37,7 +37,7 @@
 			"id": 2,
 			"title": "Add a dark theme option",
 			"category": "feature",
-			"upvotes": 99,
+			"upvotes": 97,
 			"status": "suggestion",
 			"description": "It would help people with light sensitivities and who prefer dark mode.",
 			"comments": [
@@ -264,7 +264,7 @@
 			"id": 11,
 			"title": "Animated solution screenshots",
 			"category": "bug",
-			"upvotes": 9,
+			"upvotes": 8,
 			"status": "in-progress",
 			"description": "Screenshots of solutions with animations don’t display correctly."
 		},

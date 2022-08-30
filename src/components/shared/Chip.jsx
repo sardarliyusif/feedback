@@ -23,7 +23,10 @@ export const Upvote = styled.button`
   font-size: 13px;
   font-weight: 600;
   display: flex;
-  flex-direction: column;
+  flex-direction: ${(props) => {
+    if(props.direction === 'row') return 'row'
+    return 'column'
+  }};
   align-items: center;
   border: none;
   cursor: pointer;

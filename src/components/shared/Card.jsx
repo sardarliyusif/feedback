@@ -11,12 +11,16 @@ export const Card = styled.div`
   padding: ${(props) => {
     if (props.padding === 'small') return '14px 16px';
     if (props.padding === 'medium') return '24px';
-    if (props.padding === 'large') return '28px 32px';
+    if (props.padding === 'large') return '24px 32px';
     return '24px';
+  }};
+  flex-direction: ${(props) => {
+    if(props.direction === 'column') return "column"
+    return "row"
   }};
   margin: ${(props) => {
     if (props.margin === 'small') return '14px 16px';
-    if (props.margin === 'medium') return '0 0 0 24px';
+    if (props.margin === 'medium') return '0 0 48px 0';
     if (props.margin === 'large') return '28px 32px';
     return '0 0 24px 0';
   }};
