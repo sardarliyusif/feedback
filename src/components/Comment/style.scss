@@ -1,0 +1,32 @@
+.comment {
+  margin: 2rem 0;
+  display: flex;
+  width: 100%;
+  img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 2rem;
+  }
+  &__body {
+    flex: 1;
+    &__title {
+        margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &__name {
+        display: flex;
+        flex-direction: column;
+      }
+    &__link{
+        cursor: pointer;
+    }
+    }
+    &__content {
+      margin: 1rem 0;
+    }
+    
+  }
+}
+

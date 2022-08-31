@@ -19,6 +19,7 @@ export const Typography = styled.span`
 	color: ${(props) => {
 		if (props.color === 'purple') return '#3A4374';
 		if (props.color === 'light') return '#647196';
+		if (props.color === 'blue') return '#4661E6';
 		return '#FFFFFF';
 	}};
 `;
