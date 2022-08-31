@@ -1,13 +1,19 @@
-// CREATE
-// EDIT
-// UPVOTE
-
+// Feedbacks Actions ENUM
 export const FeedbackActions = {
   CREATE: "CREATE",
   EDIT: "EDIT",
   DELETE: "DELETE",
   UPVOTE: "UPVOTE",
 };
+
+// Comments Actions ENUM 
+
+export const CommentActions = {
+  COMMENT: "COMMENT",
+  REPLY: "REPLY",
+};
+
+// Feedbacks Actions
 
 export const createFeedback = (feedback) => ({
   type: FeedbackActions.CREATE,
@@ -26,6 +32,14 @@ export const upvoteFeedback = (id, upvotes, selected) => ({
   payload: { id, upvotes, selected },
 });
 
-// dispatch(createFeedback({ title: '', category: '', description: '' }))
-// dispatch(editFeedback(id, { status: '' }))
-// dispatch(editFeedback(id, { title: '', category: '', description: '', status: '' }))
+
+// Comments Actions
+
+export const addComment = (id , comment) => ({
+  type: CommentActions.COMMENT,
+  payload: { id, comment },
+});
+export const addReply = (id , reply) => ({
+  type: CommentActions.REPLY,
+  payload: { id, reply },
+});

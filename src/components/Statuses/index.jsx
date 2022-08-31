@@ -4,13 +4,14 @@ import filter from "lodash/filter";
 import groupBy from "lodash/groupBy";
 import find from "lodash/find";
 import categories from "../../data/categories.json";
-import { FaAngleUp } from "react-icons/fa";
+import { FaAngleUp, FaComment } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { Status, statues } from "../../data/statuses";
 import { upvoteFeedback } from "../../redux/actions/feedback";
 import { Card, Chip, Typography } from "../shared";
 import { StatusCircle } from "../StatusCircle";
 import "./style.scss";
+import { Link } from "react-router-dom";
 
 export const Statuses = () => {
   const feedback = useSelector((s) => s.feedback);
@@ -25,44 +26,61 @@ export const Statuses = () => {
           return (
             <div key={value}>
               <Typography color="purple" weight="bold">
-                {label} ({calculated[value].length})
+                {label} ({calculated[value]?.length ?? 0})
               </Typography>
               <ul>
                 {map(
                   calculated[value],
-                  ({ id, title, description, category, upvotes, selected }) => (
+                  ({ id, title, description, category, upvotes, selected , comments}) => (
                     <li key={id}>
-                      <Card direction="column">
-                        <StatusCircle name={label} backgroundColor={color}/>
-                        <Typography color="purple" weight="bold">
-                          {title}
-                        </Typography>
-                        <Typography color="light" weight="small" size="medium">
-                          {description}
-                        </Typography>
-                        <Chip className='statuses__chip'>
-                          {find(categories, (c) => c.value === category).label}
-                        </Chip>
-                        <div
-                          style={{
-                            display: "flex",
-                            justifyContent: "space-between",
-                            alignItems: "center",
-                            width: "100%",
-                          }}
-                        >
-                          <Chip.Upvote
-                            onClick={() =>
-                              dispatch(upvoteFeedback(id, upvotes, selected))
-                            }
-                            selected={selected}
-                            direction = 'row'
+                      <Link to={`/feedback/${id}/view`}>
+                        <Card direction="column">
+                          <StatusCircle name={label} backgroundColor={color} />
+                          <Typography color="purple" weight="bold">
+                            {title}
+                          </Typography>
+                          <Typography
+                            color="light"
+                            weight="small"
+                            size="medium"
                           >
-                            <FaAngleUp style={{marginRight: '10px'}}/> {upvotes}
-                          </Chip.Upvote>
-                          <div>comment</div>
-                        </div>
-                      </Card>
+                            {description}
+                          </Typography>
+                          <Chip className="statuses__chip">
+                            {
+                              find(categories, (c) => c.value === category)
+                                .label
+                            }
+                          </Chip>
+                          <div
+                            style={{
+                              display: "flex",
+                              justifyContent: "space-between",
+                              alignItems: "center",
+                              width: "100%",
+                            }}
+                          >
+                            <Chip.Upvote
+                              onClick={() =>
+                                dispatch(upvoteFeedback(id, upvotes, selected))
+                              }
+                              selected={selected}
+                              direction="row"
+                            >
+                              <FaAngleUp style={{ marginRight: "10px" }} />{" "}
+                              {upvotes}
+                            </Chip.Upvote>
+                            <div
+                              style={{ display: "flex", alignItems: "center" }}
+                            >
+                              <FaComment
+                                style={{ color: "#CDD2EE", marginRight: "8px" }}
+                              />
+                              <Typography color="purple" weight='bold' size='medium'>{comments?.length}</Typography>
+                            </div>
+                          </div>
+                        </Card>
+                      </Link>
                     </li>
                   )
                 )}

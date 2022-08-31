@@ -1,0 +1,17 @@
+.comment__form{
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 100%;
+    &__input{
+        padding: 1rem;
+        border: none;
+        background-color: #eaf1fe;
+        margin: 1rem 0;
+        border-radius: 5px;
+    }
+    &__button{
+        width: max-content;
+        align-self: flex-end;
+    }
+}
