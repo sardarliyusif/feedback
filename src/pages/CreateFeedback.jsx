@@ -6,6 +6,7 @@ import { FaAngleLeft } from "react-icons/fa";
 import categories from "../data/categories.json";
 import { createFeedback } from "../redux/actions/feedback";
 import { Typography, Button, Card } from "../components/shared";
+import { GoPlus } from "react-icons/go";
 
 const layout = {
   labelCol: {
@@ -47,7 +48,16 @@ export const CreateFeedback = () => {
           Go Back
         </Typography>
       </Link>
-      <Card>
+
+      <Card style={{ position: "relative", marginTop: "70px" }} direction='column'>
+        <Card
+          mode="colored"
+          radius="circle"
+          style={{ position: "absolute", top: "-30px" }}
+        >
+          <GoPlus style={{ color: "#fff", fontSize: "16px" }} />
+        </Card>
+        <Typography.Title color='purple' weight='bold' style={{margin:'30px 0'}} >Create New Feedback</Typography.Title>
         <Form
           {...layout}
           name="nest-messages"
@@ -91,7 +101,7 @@ export const CreateFeedback = () => {
             <Input.TextArea />
           </Form.Item>
           <Form.Item wrapperCol={{ span: 24 }}>
-            <Link to='/'>
+            <Link to="/">
               <Button>
                 <Typography size="small">Cancel</Typography>
               </Button>

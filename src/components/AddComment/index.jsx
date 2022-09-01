@@ -7,7 +7,7 @@ export const AddComment = () => {
   return (
     <Card direction='column'>
       <Typography color='purple' weight='bold'>Add Comment</Typography>
-      <CommentForm value='Comment'/>
+      <CommentForm/>
     </Card>
   )
 }

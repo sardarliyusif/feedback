@@ -14,9 +14,9 @@ export const sortingFunctions = {
 	[Sorter.LEAST_UPVOTE]: (array) =>
 		orderBy(array, ['upvotes', 'name'], ['asc', 'asc']),
 	[Sorter.MOST_COMMENT]: (array) =>
-		orderBy(array, ['upvotes', 'name'], ['desc', 'desc']),
+		orderBy(array, ['comments', 'name'], ['desc', 'desc']),
 	[Sorter.LEAST_COMMENT]: (array) =>
-		orderBy(array, ['upvotes', 'name'], ['asc', 'asc']),
+		orderBy(array, ['comments', 'name'], ['asc', 'asc']),
 };
 
 export const sorting = [

@@ -1,12 +1,14 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { FaAngleLeft } from "react-icons/fa";
 import { Form, Input, Select } from "antd";
 import categories from "../data/categories.json";
 import { statues } from "../data/statuses";
+import { FaPenNib } from "react-icons/fa";
 import { editFeedback, deleteFeedback } from "../redux/actions/feedback";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import { Button, Card, Typography } from "../components/shared";
+import { find } from "lodash";
 
 const layout = {
   labelCol: {
@@ -20,13 +22,17 @@ const layout = {
 export const EditFeedback = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
+  const feedback = find(
+    useSelector((s) => s.feedback),
+    (f) => f.id === id
+  );
   const navigate = useNavigate();
   const onFinish = (values) => {
     dispatch(editFeedback(id, values));
     navigate(`/feedback/${id}/view`);
     console.log(values);
   };
-
+  
   return (
     <div className="container-s">
       <Link to={`/feedback/${id}/view`}>
@@ -35,7 +41,15 @@ export const EditFeedback = () => {
           Go Back
         </Typography>
       </Link>
-      <Card>
+      <Card style={{ position: "relative", marginTop: "70px" } } direction='column'>
+        <Card
+          mode="colored"
+          radius="circle"
+          style={{ position: "absolute", top: "-30px" }}
+        >
+          <FaPenNib style={{ color: "#fff", fontSize: "16px" }} />
+        </Card>
+        <Typography.Title color='purple' weight='bold' style={{margin:'30px 0'}}>Editing {feedback.title}</Typography.Title>
         <Form {...layout} name="nest-messages" onFinish={onFinish}>
           <Form.Item name="title" label="Title">
             <Input />
@@ -53,7 +67,7 @@ export const EditFeedback = () => {
             <Button
               onClick={() => {
                 dispatch(deleteFeedback(id));
-                navigate('/');
+                navigate("/");
               }}
               background="danger"
               type="button"

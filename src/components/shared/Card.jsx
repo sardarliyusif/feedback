@@ -7,7 +7,10 @@ export const Card = styled.div`
       if (props.mode === 'colored') return 'radial-gradient(128.88% 128.88% at 103.9% -10.39%, #E84D70 0%, #A337F6 53.09%, #28A7ED 100%)'; 
       return '#ffffff';
   }};
-  border-radius: 10px;
+  border-radius: ${(props) => {
+    if (props.radius === "circle") return '50%'
+    return "10px"
+  }};
   padding: ${(props) => {
     if (props.padding === 'small') return '14px 16px';
     if (props.padding === 'medium') return '24px';
