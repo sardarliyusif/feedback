@@ -51,7 +51,7 @@ export const RightCards = () => {
               selectedCategories.includes(category)
           )
         ),
-        ({ id, title, category, description, comments, upvotes, selected }) => (
+        ({ id, title, category, description, upvotes, selected }) => (
           <Card
             key={id}
             padding="large"
@@ -82,7 +82,7 @@ export const RightCards = () => {
             </Link>
             <div style={{ display: "flex", alignItems: "center" }}>
               <FaComment style={{ color: "#CDD2EE", marginRight: "8px" }} /> 
-              <Typography color="purple" weight='bold' size='medium'>{comments?.length}</Typography>
+              {/* <Typography color="purple" weight='bold' size='medium'>{comments?.length}</Typography> */}
             </div>
           </Card>
         )

@@ -2,7 +2,7 @@ import dayjs from "dayjs";
 import { find, map, mergeWith, cloneDeep, findIndex, some } from "lodash";
 import { nanoid } from "nanoid";
 import { Status } from "../../data/statuses";
-import { FeedbackActions, CommentActions } from "../actions/feedback";
+import { FeedbackActions } from "../actions/feedback";
 import data from "../../data/data.json";
 
 const initialFeedbacks = map(data.productRequests, (e) => {
@@ -15,14 +15,6 @@ const initialFeedbacks = map(data.productRequests, (e) => {
     upvotes: e.upvotes,
     selected: false,
     createdAt: dayjs().format("YYYY-MM-DD-HH:mm"),
-    comments: map(e.comments, (c) => {
-      return {
-        content: c.content,
-        id: nanoid(),
-        user: c.user,
-        replies: c.replies,
-      };
-    }),
     id: nanoid(),
   };
 });
@@ -97,11 +89,7 @@ export const feedbackReducer = (state = initialFeedbacks, action) => {
       const clonedState = cloneDeep(state);
       clonedState.splice(deletedIndex, 1);
       return clonedState;
-    // For Comments
-    case CommentActions.COMMENT:
-      return state;
-    case CommentActions.REPLY:
-      return state;
+
     default:
       return state;
   }

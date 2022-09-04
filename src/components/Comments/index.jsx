@@ -14,7 +14,7 @@ export const Comments = () => {
   return (
     <Card className="comments" direction='column'>
       <Typography color="purple" weight="bold">
-        {feedback?.comments.length ?? 0} Comments
+        {feedback?.comments?.length ?? 0} Comments
       </Typography>
       <Comment/>
     </Card>
