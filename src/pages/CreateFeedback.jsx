@@ -7,13 +7,14 @@ import categories from "../data/categories.json";
 import { createFeedback } from "../redux/actions/feedback";
 import { Typography, Button, Card } from "../components/shared";
 import { GoPlus } from "react-icons/go";
+import './style.scss'
 
 const layout = {
   labelCol: {
-    span: 8,
+    span: 24,
   },
   wrapperCol: {
-    span: 16,
+    span: 24,
   },
 };
 
