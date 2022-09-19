@@ -7,8 +7,6 @@ import { find } from "lodash";
 import { upvoteFeedback } from "../redux/actions/feedback";
 import { Typography, Button, Card, Chip } from "../components/shared";
 import categories from "../data/categories.json";
-import { Comments } from "../components/Comments";
-import { AddComment } from "../components/AddComment";
 
 export const Detail = () => {
   const { id } = useParams();
@@ -64,12 +62,8 @@ export const Detail = () => {
             {categories.find((c) => c.value === feedback?.category)?.label}
           </Chip>
         </Link>
-        <div style={{display: 'flex' , alignItems: 'center'}}><FaComment style={{color: '#CDD2EE' , marginRight: '8px'}}/>
-        <Typography color="purple" weight='bold' size='medium'>{feedback?.comments?.length}</Typography>
-        </div>
+        
       </Card>
-      <Comments/>
-      <AddComment/>
     </div>
   );
 };

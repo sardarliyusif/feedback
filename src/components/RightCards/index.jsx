@@ -80,10 +80,7 @@ export const RightCards = () => {
               </Typography>
               <Chip>{categories.find((c) => c.value === category)?.label}</Chip>
             </Link>
-            <div style={{ display: "flex", alignItems: "center" }}>
-              <FaComment style={{ color: "#CDD2EE", marginRight: "8px" }} /> 
-              {/* <Typography color="purple" weight='bold' size='medium'>{comments?.length}</Typography> */}
-            </div>
+            
           </Card>
         )
       )}
